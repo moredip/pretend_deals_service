@@ -1,12 +1,6 @@
+require 'deals_service/deal'
 
 module DealsService
-  class Deal < Struct.new(:sku,:desc)
-    def to_json(*args)
-      puts self
-      self.to_h.to_json(*args)
-    end
-  end
-
   class DealsRepo
     def deals
       [
