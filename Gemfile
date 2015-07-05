@@ -4,7 +4,7 @@ source "https://rubygems.org"
 gem "rake"
 gem "grape"
 
-gem 'thin'
+gem 'puma'
 
 gem "microscope_tracer"
 
