@@ -6,7 +6,7 @@ module DealsService
   class PricingGateway
     def initialize(base_url)
       @conn = Faraday.new(url:base_url) do |faraday|
-        faraday.use MicroscopeTracer::FaradayMiddleware
+        faraday.use MicroscopeTracer::FaradayMiddleware, 'deals-service'
         faraday.response :json
         faraday.adapter Faraday.default_adapter
       end

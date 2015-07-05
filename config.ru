@@ -10,5 +10,5 @@ if ENV['RACK_ENV'].downcase == 'development'
   puts "running in DEV MODE!"
 end
 
-use MicroscopeTracer::RackMiddleware
+use MicroscopeTracer::RackMiddleware, 'deals-service'
 run DealsService::API
