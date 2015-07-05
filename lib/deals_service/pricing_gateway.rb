@@ -1,12 +1,12 @@
 require 'faraday'
 require 'faraday_middleware'
-require 'microscope/faraday_middleware'
+require 'microscope_tracer/faraday_middleware'
 
 module DealsService
   class PricingGateway
     def initialize(base_url)
       @conn = Faraday.new(url:base_url) do |faraday|
-        faraday.use Microscope::FaradayMiddleware
+        faraday.use MicroscopeTracer::FaradayMiddleware
         faraday.response :json
         faraday.adapter Faraday.default_adapter
       end

@@ -6,7 +6,7 @@ gem "grape"
 
 gem 'thin'
 
-gem 'request_store'
+gem "microscope_tracer"
 
 gem "faraday"
 gem "faraday_middleware"
