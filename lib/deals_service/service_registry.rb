@@ -21,7 +21,7 @@ module DealsService
     end
 
     def pricing_gateway
-      PricingGateway.new( ENV.fetch('PRICING_SERVICE_BASE_URL') )
+      PricingGateway.new( @env.fetch('PRICING_SERVICE_BASE_URL') )
     end
   end
 
