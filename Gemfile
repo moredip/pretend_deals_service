@@ -6,7 +6,7 @@ gem "grape"
 
 gem 'puma'
 
-gem 'microscope_tracer', '~> 0.2.0'
+gem 'microscope_tracer', '~> 0.2.1'
 
 gem "faraday"
 gem "faraday_middleware"
