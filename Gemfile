@@ -14,6 +14,8 @@ gem "faraday_middleware"
 group :development, :test do
   gem 'foreman'
   gem 'dotenv'
+  gem 'rspec', '~> 3.3.0'
+  gem 'pry'
 end
 
 group :development do
