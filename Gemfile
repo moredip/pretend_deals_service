@@ -15,6 +15,7 @@ group :development, :test do
   gem 'foreman'
   gem 'dotenv'
   gem 'rspec', '~> 3.3.0'
+  gem 'ci_reporter_rspec'
   gem 'pry'
 end
 
