@@ -1,9 +1,15 @@
 require 'rake'
-require 'rspec/core'
-require 'rspec/core/rake_task'
 
-RSpec::Core::RakeTask.new(:spec) do |spec|
-  spec.pattern = FileList['spec/api/*_spec.rb']
+namespace :spec do
+  begin
+    require 'rspec/core'
+    require 'rspec/core/rake_task'
+
+    RSpec::Core::RakeTask.new(:unit) do |spec|
+      spec.pattern = FileList['spec/unit/*_spec.rb']
+    end
+  rescue LoadError
+  end
 end
 
 desc "run local server"
@@ -18,4 +24,4 @@ task :deploy_dev do
   sh "cf push -n pretend-deals-service-dev"
 end
 
-task default: [:spec]
+task default: ['spec:unit']
