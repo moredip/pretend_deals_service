@@ -1,6 +1,7 @@
+require 'pry'
+
 ENV['RACK_ENV'] ||= 'test'
 
-require 'pry'
 Dir.glob(File.expand_path('../../lib/**/*.rb', __FILE__)) {|file| require file}
 
 RSpec.configure do |config|
