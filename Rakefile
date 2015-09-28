@@ -34,10 +34,14 @@ namespace :app do
     pricing_service_url = args[:pricing_service_url]
 
     puts "deploying..."
-    puts `cf login -a api.run.pivotal.io -u #{ENV['CF_USERNAME']} -p #{ENV['CF_PASSWORD']} -o TW-org -s #{space}`
-    puts `cf push #{app_name} -n #{host} --no-start`
-    puts `cf set-env #{app_name} PRICING_SERVICE_BASE_URL #{pricing_service_url} > /dev/null 2>&1`
-    puts `cf push #{app_name} -n #{host}`
+    begin
+      puts `cf login -a api.run.pivotal.io -u #{ENV['CF_USERNAME']} -p #{ENV['CF_PASSWORD']} -o TW-org -s #{space}`
+      puts `cf push #{app_name} -n #{host} --no-start`
+      puts `cf set-env #{app_name} PRICING_SERVICE_BASE_URL #{pricing_service_url} > /dev/null 2>&1`
+      puts `cf push #{app_name} -n #{host}`
+    ensure
+      puts `cf logout`
+    end
     puts "deployed"
   end
 
@@ -47,8 +51,12 @@ namespace :app do
     app_name = args[:app_name]
 
     puts "deleting..."
-    puts `cf login -a api.run.pivotal.io -u #{ENV['CF_USERNAME']} -p #{ENV['CF_PASSWORD']} -o TW-org -s #{space}`
-    puts `cf delete -f #{app_name}`
+    begin
+      puts `cf login -a api.run.pivotal.io -u #{ENV['CF_USERNAME']} -p #{ENV['CF_PASSWORD']} -o TW-org -s #{space}`
+      puts `cf delete -f #{app_name}`
+    ensure
+      puts `cf logout`
+    end
     puts "deleted"
   end
 end
