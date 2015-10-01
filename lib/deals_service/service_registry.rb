@@ -1,6 +1,7 @@
 require 'deals_service/deals_repo'
 require 'deals_service/deal_decorator'
 require 'deals_service/pricing_gateway'
+require 'json'
 
 module DealsService
   class ServiceRegistry
