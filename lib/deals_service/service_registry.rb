@@ -21,7 +21,13 @@ module DealsService
     end
 
     def pricing_gateway
-      PricingGateway.new( @env.fetch('PRICING_SERVICE_BASE_URL') )
+      if ENV['VCAP_SERVICES']
+        vcap_services = JSON.parse(ENV['VCAP_SERVICES'])
+        pricing_service_base_url = vcap_services['user-provided'].detect { |service| service["credentials"]["type"] == 'pricing' }["credentials"]["url"]
+      else
+        pricing_service_base_url = @env.fetch('PRICING_SERVICE_BASE_URL')
+      end
+      PricingGateway.new( pricing_service_base_url )
     end
   end
 

@@ -31,12 +31,13 @@ namespace :app do
     space = args[:space]
     prefix = args[:prefix]
     app_name = "#{prefix}_deals"
+    pricing_service = "#{prefix}_pricing_service"
 
     puts "deploying..."
     begin
       puts `cf login -a api.run.pivotal.io -u #{ENV['CF_USERNAME']} -p #{ENV['CF_PASSWORD']} -o TW-org -s #{space}`
       puts `cf push #{app_name} -n #{app_name} --no-start`
-      puts `cf set-env #{app_name} PRICING_SERVICE_BASE_URL http://#{prefix}_pricing.cfapps.io > /dev/null 2>&1`
+      puts `cf bind-service #{app_name} #{pricing_service}`
       puts `cf push #{app_name} -n #{app_name}`
       puts `cf cups #{app_name}_service -p '{"type":"deals", "url":"http://#{app_name}.cfapps.io"}'`
     ensure
