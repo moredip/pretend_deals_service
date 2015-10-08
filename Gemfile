@@ -11,6 +11,8 @@ gem 'microscope_tracer', '~> 0.2.1'
 gem "faraday"
 gem "faraday_middleware"
 
+gem 'cloudfoundry-deploy', :git => 'https://github.com/ThoughtWorks-AELab/cloudfoundry-deploy.git'
+
 group :development, :test do
   gem 'foreman'
   gem 'dotenv'

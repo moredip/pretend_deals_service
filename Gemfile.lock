@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ThoughtWorks-AELab/cloudfoundry-deploy.git
+  revision: c71f76812ce45d393ec7000284ebbf5023a17503
+  specs:
+    cloudfoundry-deploy (0.0.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -96,6 +102,7 @@ PLATFORMS
 
 DEPENDENCIES
   ci_reporter_rspec
+  cloudfoundry-deploy!
   dotenv
   faraday
   faraday_middleware
