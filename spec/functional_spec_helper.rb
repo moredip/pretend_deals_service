@@ -12,10 +12,10 @@ raise "You need to have the PRICING_SERVICE_URL or the BASE_URL environment vari
 
 RSpec.configure do |rspec|
   rspec.before(:suite) do
-    Rake::Task["app:deploy"].invoke(ENV['RACK_ENV'], PREFIX) unless MANAGE_DEPLOYED_APP
+    Rake::Task["cf:deploy"].invoke(ENV['RACK_ENV'], PREFIX) unless MANAGE_DEPLOYED_APP
   end
 
   rspec.after(:suite) do
-    Rake::Task["app:delete"].invoke(ENV['RACK_ENV'], PREFIX) unless MANAGE_DEPLOYED_APP
+    Rake::Task["cf:delete"].invoke(ENV['RACK_ENV'], PREFIX) unless MANAGE_DEPLOYED_APP
   end
 end
