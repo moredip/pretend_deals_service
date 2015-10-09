@@ -6,7 +6,7 @@ load File.expand_path("Rakefile")
 
 PREFIX = ENV["PREFIX"] || SecureRandom.hex(4)
 MANAGE_DEPLOYED_APP = ENV["BASE_URL"]
-BASE_URL = ENV["BASE_URL"] || "http://#{PREFIX}_deals.cfapps.io"
+BASE_URL = ENV["BASE_URL"] || "http://#{PREFIX}-deals.cfapps.io"
 
 raise "You need to have the PRICING_SERVICE_URL or the BASE_URL environment variable set to run these tests" unless ENV["PRICING_SERVICE_URL"] || ENV["BASE_URL"]
 

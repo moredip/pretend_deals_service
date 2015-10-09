@@ -1,6 +1,6 @@
 GIT
   remote: https://github.com/ThoughtWorks-AELab/cloudfoundry-deploy.git
-  revision: 0563ea594edccbfefb79126c795e99ceb4588ed1
+  revision: 7fdc84231fc36b6ce1b2e305a3e0a39339a15f80
   specs:
     cloudfoundry-deploy (0.0.1)
 
@@ -114,3 +114,6 @@ DEPENDENCIES
   puma
   rake
   rspec (~> 3.3.0)
+
+BUNDLED WITH
+   1.10.6
