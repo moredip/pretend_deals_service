@@ -1,8 +1,8 @@
 defaults: &defaults
-  app_suffix: deals
+  app_name: deals
   org: TW-org
   is_service: true
-  dependency_service_app_suffixes:
+  dependencies:
     - pricing
 
 test:
