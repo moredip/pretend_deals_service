@@ -1,0 +1,10 @@
+--
+platform: linux
+image: docker:///ruby#2
+inputs: 
+  - name: git-deals
+    path: .
+run: 
+  path: concourse/task_unit.sh 3bundle install --path vendor/bundle --without production
+  args: ["-lR"]
+
