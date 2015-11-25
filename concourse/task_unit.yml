@@ -4,6 +4,11 @@ image: docker:///ruby#2
 inputs: 
   - name: git-deals
     path: .
+  - name: bundle install
+    path: vendor/bundle 
 run: 
-  path: concourse/task_unit.sh 
-
+  path: bundle
+  args: ['exec','rake','spec:unit']
+outputs:
+  - name: reports
+    path: concourse/spec/reports
