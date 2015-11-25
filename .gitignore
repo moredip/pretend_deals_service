@@ -1,2 +1,5 @@
 .bundle
+.cf
 vendor/bundle
+spec/reports
+*.swp
