@@ -4,6 +4,8 @@ image: docker:///ruby#2
 inputs: 
   - name: git-deals
     path: .
+  - name: bundle
+    path: vendor/bundle
 run: 
   path: concourse/task_unit.sh 
 
