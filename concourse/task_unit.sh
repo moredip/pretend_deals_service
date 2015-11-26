@@ -1,3 +1,3 @@
 #!/bin/bash 
-bundle install --without production
+bundle install --path=vendor/bundle --without production 
 bundle exec rake spec:unit
