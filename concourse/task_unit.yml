@@ -7,3 +7,6 @@ inputs:
 run: 
   path: concourse/task_unit.sh 
 
+outputs:
+  - name: reports
+    path: concourse/spec/reports
