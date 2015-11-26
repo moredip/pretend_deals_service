@@ -9,3 +9,7 @@ inputs:
 run: 
   path: concourse/task_deploy.sh 
   args: ['test']
+params:
+  CF_USERNAME:
+  CF_PASSWORD:
+  CF_SPACE:
